@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tama Clone Proto</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Tama Clone</h1>
+
+    <div id="game-display">
+        <div class="section">
+            <img src="./assets/images/sloth-love.jpg" alt="Adorable sloth character with heart">
+            <div id="button-group">
+                <button id="pet-button" class="interaction">Pet</button>
+                <button id="feed-button" class="interaction">Feed</button>
+                <button id="play-button" class="interaction">Play</button>
+                <button id="bathe-button" class="interaction">Bath</button>
+                <button id="water-button" class="interaction">Water</button>
+            </div>
+        </div>
+
+        <div id="data-vis">
+            <h1 id="title">Temporary Data Vis</h1>
+            <p id="text-output"></p>
+            <ul class="attributes-list">
+                <li class="attribute-list-item">Health: <span id="hp-output"></span></li>
+                <li class="attribute-list-item">Affection: <span id="affection-output"></span></li>
+                <li class="attribute-list-item">Hunger: <span id="hunger-output"></span></li>
+                <li class="attribute-list-item">Thirst: <span id="thirst-output"></span> </li>
+                <li class="attribute-list-item">Fatigue: <span id="fatigue-output"></span> </li>
+                <li class="attribute-list-item">Joy: <span id="joy-output"></span> </li>
+                <li class="attribute-list-item">Boredom: <span id="boredom-output"></span> </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
