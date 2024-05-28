@@ -31,9 +31,34 @@ export default class Pet {
         })
     }
 
+    lifeCycle() {
+        console.log('Life...will find a way...')
+        this.hunger += 1
+        this.thirst += 2
+        this.fatigue += .5
+        this.boredom += 3
+
+        if (this.hunger > 35) {
+            this.hp -= 1
+        }
+        if(this.thirst > 35) {
+            this.hp -= 1
+        }
+        if(this.fatigue > 50) {
+            this.hp -= 1
+        }
+        if(this.boredom > 35) {
+            this.affection -= 5
+        }
+    }
+
+    die() {
+        
+    }
+
     receive_pet() {
-        this.affection += 1
-        this.joy += .5
+        this.affection += 3
+        this.joy += 2
         this.message = 'YAY! I like headpats!'
     }
 
@@ -41,23 +66,23 @@ export default class Pet {
         this.affection += 1
         this.hunger -= 5
         this.fatigue += 5
-        this.thirst += 5
-        this.joy += 1
+        this.thirst += 1
+        this.joy += 5
         this.message = "Yummmy!"
     }
 
     receive_play() {
-        this.affection += 2
+        this.affection += 5
         this.hunger += 1.5
         this.thirst += 1.5
-        this.boredom -= 2
+        this.boredom -= 3
         this.fatigue += 5
         this.message = "Wow, you're a lot of fun!"
     }
 
     receive_bath() {
         this.joy -= 5
-        this.fatigue -= 2
+        this.fatigue -= 5
         this.affection -= 10
         this.message = "HEY! I don't know you like that!"
     }
@@ -66,6 +91,16 @@ export default class Pet {
         this.thirst -= 5
         this.affection += 1
         this.message = "Nice! Cold and Wet!"
+    }
+
+    receive_sleep() {
+        if(this.fatigue >= 51) {
+            this.fatigue -= 50
+        } else {
+            this.fatigue = 0
+        }
+        this.hunger += 10
+        this.thirst += 10
     }
 
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Tama Clone</h1>
-
+    <button id="game-start-button">START</button>
     <div id="game-display">
         <div class="section">
             <img src="./assets/images/sloth-love.jpg" alt="Adorable sloth character with heart">
@@ -18,6 +18,7 @@
                 <button id="play-button" class="interaction">Play</button>
                 <button id="bathe-button" class="interaction">Bath</button>
                 <button id="water-button" class="interaction">Water</button>
+                <button id="sleep-button" class="interaction">Sleep</button>
             </div>
         </div>
 
@@ -37,6 +38,7 @@
     </div>
 
     <script type="module" src="./modules/DOM_Utility.js"></script>
+    <script type="module" src="./modules/GameLoop.js"></script>
     <script type="module" src="./modules/Actions.js"></script>
     <script type="module" src="./modules/Display.js"></script>
     <script type="module" src="./modules/Sprite.js"></script>

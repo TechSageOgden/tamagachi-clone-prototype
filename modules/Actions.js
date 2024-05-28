@@ -27,6 +27,12 @@ export default class Actions {
     water(pet, display) {
         console.log("You give the creature a drink!")
         pet.receive_water()
-        display.update(pet, display)
+        display.update(pet)
+    }
+
+    sleep(pet, display) {
+        console.log("The creature has a good rest!")
+        pet.receive_sleep()
+        display.update(pet)
     }
 }

@@ -11,6 +11,8 @@ import Actions from "./modules/Actions.js"
 // Pet Dependency
 import Pet from "./modules/Pet.js"
 
+// GameLoop Dependency
+import GameLoop from "./modules/GameLoop.js"
 
 
 const DATA_TABLE = [
@@ -43,12 +45,15 @@ const DATA_TABLE = [
     },
 ]
 
+const GAME_START_BUTTON = DOM.elementGetter('game-start-button')
+
 
 const PET_BUTTON = DOM.elementGetter('pet-button')
 const FEED_BUTTON = DOM.elementGetter('feed-button')
 const PLAY_BUTTON = DOM.elementGetter('play-button')
 const BATHE_BUTTON = DOM.elementGetter('bathe-button')
 const WATER_BUTTON = DOM.elementGetter('water-button')
+const SLEEP_BUTTON = DOM.elementGetter('sleep-button')
 
 
 const BUTTON_ARRAY = [
@@ -57,6 +62,7 @@ const BUTTON_ARRAY = [
     PLAY_BUTTON,
     BATHE_BUTTON,
     WATER_BUTTON,
+    SLEEP_BUTTON
 ]
 
 const DISPLAY = new Display()
@@ -86,8 +92,36 @@ BUTTON_ARRAY.map((button, index) => {
             case 4:
                 ACTIONS.water(sloth, DISPLAY)
                 break;
+            case 5:
+                ACTIONS.sleep(sloth, DISPLAY)
+                break;
             default:
                 break;
         }
     })
+})
+
+let myReqId
+let isEnded = false
+
+const game = new GameLoop(sloth, myReqId)
+
+
+
+
+const loop = () => {
+    game.update(DISPLAY)
+    
+    if (game.current_time - 25000 >= game.start_time) {
+        game.end(myReqId)
+        return
+    }
+    
+    myReqId = requestAnimationFrame(loop)
+}
+
+
+GAME_START_BUTTON.addEventListener("click", () => {
+    game.start()
+    loop()
 })
