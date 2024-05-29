@@ -33,6 +33,7 @@ export default class Pet {
 
     lifeCycle() {
         console.log('Life...will find a way...')
+        let is_dead = false
         this.hunger += 1
         this.thirst += 2
         this.fatigue += .5
@@ -40,20 +41,37 @@ export default class Pet {
 
         if (this.hunger > 35) {
             this.hp -= 1
+            if (this.hunger > 75) {
+                this.hp -= 10
+            }
         }
         if(this.thirst > 35) {
             this.hp -= 1
+            if (this.thirst > 75) {
+                this.hp -= 10
+            }
         }
         if(this.fatigue > 50) {
             this.hp -= 1
+            if (this.fatigue > 75) {
+                this.hp -= 10
+            }
         }
         if(this.boredom > 35) {
             this.affection -= 5
+            if (this.boredom > 75) {
+                this.affection -= 15
+            }
+        }
+        if(this.hp <= 0) {
+            is_dead = true
+            return is_dead
+        } else {
+            return is_dead
         }
     }
-
     die() {
-        
+        this.message = 'Death comes for us all..'
     }
 
     receive_pet() {

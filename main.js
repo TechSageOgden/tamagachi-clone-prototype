@@ -23,7 +23,7 @@ const DATA_TABLE = [
             affection: 10,
             hunger: 10,
             thirst: 10,
-            fatigue: 85,
+            fatigue: 15,
             joy: 0,
             boredom: 0,
         },
@@ -110,10 +110,10 @@ const game = new GameLoop(sloth, myReqId)
 
 
 const loop = () => {
-    game.update(DISPLAY)
+    isEnded = game.update(DISPLAY)
     
-    if (game.current_time - 25000 >= game.start_time) {
-        game.end(myReqId)
+    if (isEnded) {
+        game.end(myReqId, DISPLAY)
         return
     }
     

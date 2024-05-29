@@ -19,7 +19,10 @@ export default class GameLoop {
         this.current_time = Date.now()
         if(this.current_time - 5000 >= this.step_time) {
             this.step_time = this.current_time
-            this.pet.lifeCycle()
+            let is_dead = this.pet.lifeCycle()
+            if (is_dead) {
+                return is_dead
+            }
         }
         display.update(this.pet)
     }
@@ -27,8 +30,10 @@ export default class GameLoop {
     
     draw() {}
 
-    end(reqId) {
+    end(reqId, display) {
         console.log(`Game end @ ${this.current_time}`, `Start Time: ${this.start_time}`)
+        this.pet.die()
+        display.update(this.pet)
         cancelAnimationFrame(reqId)
     }
 }
